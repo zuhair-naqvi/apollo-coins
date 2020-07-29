@@ -6,9 +6,9 @@ const cache = new InMemoryCache({
       fields: {
         price: {
           read(_, { readField }) {
-            const id = readField("polygonId");
+            const ticker = readField("ticker");
             const prices: any = latestPrices();
-            return prices[`${id}`] || "-";
+            return prices[`${ticker}`] || "-";
           },
         },
       },
@@ -17,7 +17,35 @@ const cache = new InMemoryCache({
 });
 
 export const latestPrices = cache.makeVar({
-  "XT.BTC-USD": "11000",
+  "BTC-USD": "-",
+  "ETH-USD": "-",
 });
+
+const socket = new WebSocket("wss://socket.polygon.io/crypto");
+socket.onopen = () => {
+  socket.send(
+    JSON.stringify({
+      action: "auth",
+      params: "fQADH6_SpkB0gNHcF_MunG9jXwI1jjKCj8umn_",
+    })
+  );
+  socket.send(
+    JSON.stringify({
+      action: "subscribe",
+      params: "XT.BTC-USD,XT.ETH-USD",
+    })
+  );
+};
+socket.onmessage = ({ data }) => {
+  const message = JSON.parse(data);
+  const { pair, p }: { pair: string; p: string } = message[0];
+  if (pair) {
+    const prices = latestPrices();
+    latestPrices({
+      ...prices,
+      [pair]: Math.round(Number(p)),
+    });
+  }
+};
 
 export default cache;

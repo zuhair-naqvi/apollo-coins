@@ -5,7 +5,6 @@ import { ActivityIndicator, StyleSheet, FlatList } from "react-native";
 import { View, Text } from "./Themed";
 
 import { ListItem } from "react-native-elements";
-import { latestPrices } from "../cache";
 
 const CRYPTOS = gql`
   query getCryptos {
@@ -22,27 +21,7 @@ const CRYPTOS = gql`
   }
 `;
 
-const socket = new WebSocket("wss://socket.polygon.io/crypto");
-socket.onopen = () => {
-  socket.send(
-    JSON.stringify({
-      action: "auth",
-      params: "fQADH6_SpkB0gNHcF_MunG9jXwI1jjKCj8umn_",
-    })
-  );
-  socket.send(
-    JSON.stringify({
-      action: "subscribe",
-      params: "XT.BTC-USD",
-    })
-  );
-};
-socket.onmessage = ({ data }) => {
-  const update = JSON.parse(data);
-  latestPrices({ "XT.BTC-USD": update[0]?.p });
-};
-
-export default function Cryptos() {
+export default function List() {
   const { loading, error, data } = useQuery(CRYPTOS);
   if (error) {
     return <Text>Error Fetching Data</Text>;
@@ -73,7 +52,7 @@ export default function Cryptos() {
         title={item.name}
         subtitle={item.ticker}
         leftAvatar={{ source: { uri: item.avatar_url } }}
-        rightElement={<Text>{item.price}</Text>}
+        rightElement={<Text>${item.price}</Text>}
         bottomDivider
       />
     );

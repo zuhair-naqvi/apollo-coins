@@ -1,12 +1,12 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { View } from "../components/Themed";
-import Cryptos from "../components/Cryptos";
+import List from "../components/List";
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Cryptos />
+      <List />
     </View>
   );
 }

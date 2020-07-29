@@ -1,0 +1,10 @@
+Questions
+
+1. Type/Field Cache Policies
+  1. Can we leverage the default client-side caching if using Subscriptions for data freshness?
+  2. Can we configure caching policies as a fail-safe for Subscriptions?
+2. Subscriptions Behavior Foreground V/S Background (i.e. websocket events and polling)
+3. Benchmark Reactive Variables for rendering streams:
+  1. Which components re-render when a reactive variable inside a larger query is mutated?
+  2. Performance profile of rendering reactive variables V/S MobX Observables
+4. Offline Test Cases (Persistance, Rehydration and Refetch)

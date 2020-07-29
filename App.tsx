@@ -6,12 +6,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  makeVar,
-} from "@apollo/client";
+import { ApolloClient, ApolloProvider } from "@apollo/client";
 import cache from "./cache";
 
 const client = new ApolloClient({
