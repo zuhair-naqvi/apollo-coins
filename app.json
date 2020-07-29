@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "apollo-generic",
-    "slug": "apollo-generic",
+    "name": "apollo-coins",
+    "slug": "apollo-coins",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -23,6 +23,7 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

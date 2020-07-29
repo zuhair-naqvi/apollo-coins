@@ -25,7 +25,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <ApolloProvider client={client}>
-          <Navigation colorScheme={colorScheme} />
+          <Navigation colorScheme={"light"} />
           <StatusBar />
         </ApolloProvider>
       </SafeAreaProvider>

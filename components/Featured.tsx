@@ -46,12 +46,17 @@ export default function Featured() {
     <View style={{ flex: 1 }}>
       {list.map((item: any) => (
         <Card
-          containerStyle={{ width: "90%", marginLeft: "5%" }}
+          containerStyle={{
+            width: "90%",
+            marginLeft: "5%",
+          }}
           key={item.ticker}
           title={item.name}
           image={{ uri: item.img }}
         >
-          <Text>${item.price}</Text>
+          <Text style={{ fontSize: 25, textAlign: "center", width: "100%" }}>
+            ${item.price}
+          </Text>
         </Card>
       ))}
     </View>

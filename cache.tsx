@@ -32,7 +32,7 @@ socket.onopen = () => {
   socket.send(
     JSON.stringify({
       action: "subscribe",
-      params: "XT.BTC-USD,XT.ETH-USD",
+      params: "XT.BTC-USD,XT.ETH-USD,XT.BCH-USD",
     })
   );
 };
@@ -41,6 +41,7 @@ socket.onmessage = ({ data }) => {
   const { pair, p }: { pair: string; p: string } = message[0];
   if (pair) {
     const prices = latestPrices();
+    console.log(prices);
     latestPrices({
       ...prices,
       [pair]: Math.round(Number(p)),
