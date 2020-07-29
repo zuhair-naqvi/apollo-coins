@@ -6,25 +6,18 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Cryptos from "./components/Cryptos";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  makeVar,
+} from "@apollo/client";
+import cache from "./cache";
 
 const client = new ApolloClient({
   uri:
     "https://api-eu-central-1.graphcms.com/v2/ckd5o75mz21fz01xu8s9c7nb1/master",
-  cache: new InMemoryCache({
-    typePolicies: {
-      Crypto: {
-        fields: {
-          price: {
-            read(_, { readField }) {
-              return readField("polygonId");
-            },
-          },
-        },
-      },
-    },
-  }),
+  cache,
 });
 
 export default function App() {

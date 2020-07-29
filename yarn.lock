@@ -6082,10 +6082,9 @@ pngjs@^5.0.0:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
   integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
 
-polygon.io@^1.0.0:
+"polygon.io@https://github.com/zuhair-naqvi/polygon-client-js.git":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/polygon.io/-/polygon.io-1.0.0.tgz#39d601724d11382ce4e3d975687aee534f425446"
-  integrity sha512-YKzMjjJm9/gVElKW0nBT1JV9zHPRppbfS2zPhBmj/DCtfu+5Ia5fbB/0ERbYOea7y3zfS6sLkQq0ue/eKNU1nQ==
+  resolved "https://github.com/zuhair-naqvi/polygon-client-js.git#9599e748608c3993b40fb2ddfb7750ab9d21e635"
   dependencies:
     ws "^7.1.2"
 
