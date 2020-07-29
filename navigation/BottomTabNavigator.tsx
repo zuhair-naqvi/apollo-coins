@@ -23,6 +23,7 @@ export default function BottomTabNavigator() {
         name="TabOne"
         component={TabOneNavigator}
         options={{
+          tabBarLabel: "List",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-list" color={color} />
           ),
@@ -32,6 +33,7 @@ export default function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoNavigator}
         options={{
+          tabBarLabel: "Featured",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-apps" color={color} />
           ),

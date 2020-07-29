@@ -24,6 +24,7 @@
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-    "description": ""
+    "description": "Testing Apollo 3 type policies and reactive variables with websockets",
+    "githubUrl": "https://github.com/zuhair-naqvi/apollo-coins"
   }
 }
