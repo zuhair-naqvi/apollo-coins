@@ -8,3 +8,8 @@ Questions
   1. Which components re-render when a reactive variable inside a larger query is mutated?
   2. Performance profile of rendering reactive variables V/S MobX Observables
 4. Offline Test Cases (Persistance, Rehydration and Refetch)
+5. Data Freshness, use-cases for each:
+  Polling
+  Subscriptions
+  Silent Cache Eviction
+  Force-Refetch
